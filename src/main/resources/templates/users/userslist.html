@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <title>List Users</title>
+
+</head>
+<body>
+<header th:replace="layout :: site-header" />
+<main id="users">
+    <article th:each="u : ${users}">
+        <h2 class="title" th:text="${u.username}">Username</h2>
+        <a href="userslist.html" th:href="@{/posts/userposts/{id}/(id=${u.id})}">[View Posts]</a>
+    </article>
+</main>
+
+<footer th:replace="layout :: site-footer" />
+</body>
+</html>

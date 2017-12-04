@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Edit Post</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header"/>
+
+
+<form method="post" th:object="${formCreationPost}">
+    <h1> Enter Post Title</h1>
+
+    <input id="titlePost" type="text" name="titlePost" th:value="*{titlePost}"/>
+    <span class="formError" th:if="${#fields.hasErrors('titlePost')}"
+          th:errors="*{titlePost}">Empty title</span>
+
+    <h1> Enter Post</h1>
+
+    <input id="textPost" type="text" name="textPost" th:value="*{textPost}"/>
+    <span class="formError" th:if="${#fields.hasErrors('textPost')}"
+          th:errors="*{textPost}">Empty post</span>
+
+    <div><input type="submit" value="Send a message"/>
+        <a href="postslist.html" th:href="@{/posts/postslist}">[Go to All Posts]</a></div>
+</form>
+
+<footer th:replace="layout :: site-footer"/>
+
+</body>
+</html>
